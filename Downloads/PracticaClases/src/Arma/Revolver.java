@@ -354,8 +354,6 @@ public class Revolver {
         //RETURN
         return b;
     }
-    // this.tambor[i] == Estado.CASQUILLO
-    
     /**
      * Carga el tambor del revólver completamente. Se va recorriendo el tambor
      * desde su posición 0 y se van introduciendo proyectiles en los orificios
@@ -368,7 +366,16 @@ public class Revolver {
      * el tambor
      */
     public int cargar(){
+        int b = 0;
         
+        for (int i = 0; i < this.tambor.length; i++){
+            if(this.tambor[i] == Estado.VACIO || this.tambor[i] == Estado.CASQUILLO){
+                this.tambor[i] = Estado.BALA;
+                b++;
+            }
+        }
+        
+        return b;
     }
     
     
@@ -380,7 +387,16 @@ public class Revolver {
      * @return cantidad de balas (no casquillos) que había en el tambor
      */
     public int descargar(){
+        int v = 0;
         
+        for (int i = 0; i < this.tambor.length; i++){
+            if(this.tambor[i] == Estado.CASQUILLO || this.tambor[i] == Estado.BALA){
+                this.tambor[i] = Estado.VACIO;
+                v++;
+            }
+        }
+        
+        return v;
     }
     
     
@@ -395,9 +411,23 @@ public class Revolver {
      * @return si el disparo ha sido o no efectivo
      */
     public boolean disparar(){
+        boolean disparo = false;
         
+        
+        
+        if( this.tambor[posicion] == Estado.BALA ){
+            disparo = true;
+        }
+        
+        //ACTUALIZAMOS LA POSICION 
+        if(this.posicion < this.tambor.length){
+            this.posicion++;
+        }else{
+            this.posicion = 0;
+        }
+        //
+        return disparo;
     }
-    
     
     
     /**
@@ -440,7 +470,26 @@ public class Revolver {
      */
     @Override
     public String toString(){
+        String mensaje = "{}";
         
+        for (int i = 0; i <= this.tambor.length; i++){
+            //AGREGAMOS VALORES AL STRING 
+            if(this.tambor[i] == Estado.VACIO){
+                mensaje += "_";
+            }
+            if(this.tambor[i] == Estado.BALA){
+                mensaje += "X";
+            }
+            if(this.tambor[i] == Estado.CASQUILLO){
+                mensaje += "x";
+            }
+            if(i == this.posicion){
+                mensaje = "[" + mensaje;
+                mensaje += "]";
+            }
+        }
+            
+        return mensaje;
     }
     
     // ------------------------------------------------------------
@@ -452,7 +501,9 @@ public class Revolver {
      * @return cadena con el estado del tambor
      */
     private String estadoTambor() {
-    
+        String estado = this.tambor.toString();
+        
+        return estado;
     }
     
     /**
