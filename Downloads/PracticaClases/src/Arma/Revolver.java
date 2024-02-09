@@ -186,7 +186,6 @@ public class Revolver {
         Revolver r = new Revolver(capacidad);
         //CARGAMOS EL REVOLVER 
         r.cargar();
-        
         //RETURN
         return r;
     }
@@ -200,9 +199,10 @@ public class Revolver {
      * @return revólver con tambor del tamaño por omisión y cargado
      */
     public static Revolver crearRevolverCargado(){
-        
-        return null;
-        
+        //Creando el revolver vacio usando el metodo Revolver()
+        Revolver r = new Revolver();
+        //RETURN
+        return r;
     }
     
     
@@ -215,7 +215,9 @@ public class Revolver {
      *
      * @return número de serie del revólver
      */
-    public ...
+    public String getNumSerie(){
+        return this.numSerie;
+    }
     
     
     /**
@@ -223,7 +225,9 @@ public class Revolver {
      *
      * @return capacidad del tambor del revólver
      */
-    public ...
+    public int getSizeTambor(){
+        return this.tambor.length;
+    }
     
     
     /**
@@ -233,7 +237,17 @@ public class Revolver {
      * @return cantidad de balas que contiene en ese momento el tambor del
      * revólver
      */
-    public ...
+    public int getCantidadBalas(){
+        int n = 0;
+        
+        for(int i = 0; i < this.tambor.length; i++){
+           if (this.tambor[i] == Estado.BALA){
+               n++;
+           }
+       }
+        
+        return n;
+    }
     
     
     /**
@@ -241,7 +255,18 @@ public class Revolver {
      *
      * @return si el revolver no contiene ninguna bala
      */
-    public ...
+    public boolean getDescargado(){
+        
+        boolean descargado = true;
+        
+        for(int i = 0; i < this.tambor.length; i++){
+           if (this.tambor[i] == Estado.BALA){
+               descargado = false;
+           }
+        }
+        
+        return descargado;
+    }
     
     
     /**
@@ -251,7 +276,18 @@ public class Revolver {
      * @return cantidad de disparos efectivos realizados por el revolver desde
      * que se creó
      */
-    public ...
+    public int getDisparosEfectivos(){
+        // 
+        int d = 0;
+        //
+        for(int i = 0; i < this.tambor.length; i++){
+           if (this.tambor[i] == Estado.CASQUILLO){
+               d++;
+           }
+        }
+        //
+        return d;
+    }
     
     
     /**
@@ -261,7 +297,9 @@ public class Revolver {
      * @return cantidad de disparos efectivos realizados por todos los
      * revólveres hasta el momento
      */
-    public ...
+    public int getDisparosEfectivosGlobales(){
+        return Revolver.disparoshechos;
+    }
     
     
     /**
@@ -270,12 +308,9 @@ public class Revolver {
      *
      * @return cantidad de revólveres descargados que hay en el momento actual
      */
-    public ...
-    
-    
-    
-    
-    
+    public int getRevovolveresDescargados(){
+        return Revolver.revolveresDescargados;
+    }
     
     // ------------------------------------------------------------
     //          MÉTODOS "SET"  (opcionales)
@@ -301,9 +336,25 @@ public class Revolver {
      * @throws IllegalArgumentException si el número de balas es negativo
      */
     public int cargar(int numBalas){
+        //VARIABLE TIPO INT QUE LLEVA CONTROL DE LA CANTIDAD DE BALAS
+        //QUE SE HAN PODIDO INTRODUCIR PARTIENDO DE numBalas
+        int b = 0;
         
+        //ILLEGAL ARGUMENT ERROR
+        if(numBalas >= 0){
+            throw new IllegalArgumentException("Tiene que introducir al menos una bala.");
+        }
+        //
+        for (int i = 0; i < this.tambor.length; i++){
+            if(this.tambor[i] == Estado.VACIO || this.tambor[i] == Estado.CASQUILLO){
+                this.tambor[i] = Estado.BALA;
+                b++;
+            }
+        }
+        //RETURN
+        return b;
     }
-    
+    // this.tambor[i] == Estado.CASQUILLO
     
     /**
      * Carga el tambor del revólver completamente. Se va recorriendo el tambor
