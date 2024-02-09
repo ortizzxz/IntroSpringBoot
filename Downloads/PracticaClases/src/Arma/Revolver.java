@@ -257,15 +257,8 @@ public class Revolver {
      */
     public boolean getDescargado(){
         
-        boolean descargado = true;
+        return this.getCantidadBalas() == 0;
         
-        for(int i = 0; i < this.tambor.length; i++){
-           if (this.tambor[i] == Estado.BALA){
-               descargado = false;
-           }
-        }
-        
-        return descargado;
     }
     
     
