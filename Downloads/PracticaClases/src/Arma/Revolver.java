@@ -182,8 +182,13 @@ public class Revolver {
      * @return revólver con tambor del tamaño indicado y cargado
      */
     public static Revolver crearRevolverCargado(int capacidad){
-        return null;
+        //creamos el revolver 
+        Revolver r = new Revolver(capacidad);
+        //CARGAMOS EL REVOLVER 
+        r.cargar();
         
+        //RETURN
+        return r;
     }
     
     /**
