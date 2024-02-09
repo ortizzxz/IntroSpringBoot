@@ -392,14 +392,21 @@ public class Revolver {
      */
     public int descargar(){
         int v = 0;
+        boolean estabaDescargado = isDescargado();
         
-        for (int i = 0; i < this.tambor.length; i++){
-            if(this.tambor[i] == Estado.CASQUILLO || this.tambor[i] == Estado.BALA){
-                this.tambor[i] = Estado.VACIO;
+        
+        for (int i = 0; i < this.getSizeTambor(); i++){
+            if(this.tambor[i] == Estado.BALA){
                 v++;
             }
+            this.tambor[i] = Estado.VACIO;
         }
         
+        //ATRIBUTOS DE CLASE 
+        if(!estabaDescargado && isDescargado()){
+            Revolver.revolveresDescargados++;
+        }
+        //
         return v;
     }
     
@@ -415,19 +422,27 @@ public class Revolver {
      * @return si el disparo ha sido o no efectivo
      */
     public boolean disparar(){
-        boolean disparo = false;
+        boolean disparo = tambor[posicion] == Estado.BALA;
+        boolean estabaDescargado = isDescargado();
         
-        
-        
-        if( this.tambor[posicion] == Estado.BALA ){
-            disparo = true;
+        if(disparo){
+            this.tambor[posicion] = Estado.CASQUILLO;
+            this.disparos++;
+            Revolver.disparoshechos++;
         }
         
-        //ACTUALIZAMOS LA POSICION 
-        if(this.posicion < this.tambor.length){
-            this.posicion++;
-        }else{
-            this.posicion = 0;
+//        ACTUALIZAMOS LA POSICION 
+//        if(this.posicion < this.tambor.length){
+//            this.posicion++;
+//        }else{
+//            this.posicion = 0;
+//        }
+        
+        posicion = posicion + 1 % getSizeTambor();
+        
+        //ATRIBUTOS DE CLASE 
+        if(!estabaDescargado && isDescargado()){
+            Revolver.revolveresDescargados++;
         }
         //
         return disparo;
@@ -474,26 +489,30 @@ public class Revolver {
      */
     @Override
     public String toString(){
-        String mensaje = "{}";
         
-        for (int i = 0; i <= this.tambor.length; i++){
-            //AGREGAMOS VALORES AL STRING 
-            if(this.tambor[i] == Estado.VACIO){
-                mensaje += "_";
-            }
-            if(this.tambor[i] == Estado.BALA){
-                mensaje += "X";
-            }
-            if(this.tambor[i] == Estado.CASQUILLO){
-                mensaje += "x";
-            }
-            if(i == this.posicion){
-                mensaje = "[" + mensaje;
-                mensaje += "]";
-            }
-        }
-            
-        return mensaje;
+//        String mensaje = "{";
+//        
+//        for (int i = 0; i <= this.tambor.length; i++){
+//            //AGREGAMOS VALORES AL STRING 
+//            if(this.tambor[i] == Estado.VACIO){
+//                mensaje += "_";
+//            }
+//            if(this.tambor[i] == Estado.BALA){
+//                mensaje += "X";
+//            }
+//            if(this.tambor[i] == Estado.CASQUILLO){
+//                mensaje += "x";
+//            }
+//            if(i == this.posicion){
+//                mensaje = "[" + mensaje + "]";
+//            }else{
+//                    mensaje += " " + mensaje + " ";
+//               }
+//        }
+//            
+//        return mensaje + "}";
+        
+        return estadoTambor();
     }
     
     // ------------------------------------------------------------
@@ -505,9 +524,25 @@ public class Revolver {
      * @return cadena con el estado del tambor
      */
     private String estadoTambor() {
-        String estado = this.tambor.toString();
+        StringBuilder stringTambor = new StringBuilder("{");
         
-        return estado;
+        for (int i = 0; i <= this.tambor.length; i++){
+            //AGREGAMOS VALORES AL STRING 
+            String hueco="";
+            switch(tambor[i]){
+                case BALA -> hueco = "X";
+                case CASQUILLO -> hueco = "x";
+                case VACIO -> hueco = "_";
+            }
+            if(i==posicion){
+                stringTambor.append("[").append(hueco).append("]");
+            }else{
+                stringTambor.append(" ").append(hueco).append(" ");
+            }
+        }
+        
+        stringTambor.append("}");
+        return stringTambor.toString();
     }
     
     /**
