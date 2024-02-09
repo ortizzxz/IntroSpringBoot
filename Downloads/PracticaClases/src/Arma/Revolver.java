@@ -255,7 +255,7 @@ public class Revolver {
      *
      * @return si el revolver no contiene ninguna bala
      */
-    public boolean getDescargado(){
+    public boolean isDescargado(){
         
         return this.getCantidadBalas() == 0;
         
@@ -328,21 +328,32 @@ public class Revolver {
      * el tambor
      * @throws IllegalArgumentException si el número de balas es negativo
      */
-    public int cargar(int numBalas){
+    public int cargar(int numBalas) throws IllegalArgumentException{
         //VARIABLE TIPO INT QUE LLEVA CONTROL DE LA CANTIDAD DE BALAS
         //QUE SE HAN PODIDO INTRODUCIR PARTIENDO DE numBalas
         int b = 0;
+        boolean estabaDescargado = true;
+        int cargasEfectivas;
         
         //ILLEGAL ARGUMENT ERROR
-        if(numBalas >= 0){
+        if(numBalas < 0){
             throw new IllegalArgumentException("Tiene que introducir al menos una bala.");
         }
+        
+        cargasEfectivas = Math.min(numBalas, getSizeTambor());
+        
         //
-        for (int i = 0; i < this.tambor.length; i++){
-            if(this.tambor[i] == Estado.VACIO || this.tambor[i] == Estado.CASQUILLO){
+        for (int i = 0; i < getSizeTambor() && cargasEfectivas > 0; i++){
+            if(this.tambor[i] != Estado.BALA){
                 this.tambor[i] = Estado.BALA;
                 b++;
+                cargasEfectivas--;
             }
+        }
+        
+        //ATRIBUTOS DE CLASE 
+        if(estabaDescargado && !isDescargado()){
+            Revolver.revolveresDescargados--;
         }
         //RETURN
         return b;
