@@ -492,7 +492,7 @@ public class Revolver {
         
 //        String mensaje = "{";
 //        
-//        for (int i = 0; i <= this.tambor.length; i++){
+//        for (int i = 0; i < this.tambor.length; i++){
 //            //AGREGAMOS VALORES AL STRING 
 //            if(this.tambor[i] == Estado.VACIO){
 //                mensaje += "_";
@@ -511,7 +511,6 @@ public class Revolver {
 //        }
 //            
 //        return mensaje + "}";
-        
         return estadoTambor();
     }
     
@@ -526,7 +525,7 @@ public class Revolver {
     private String estadoTambor() {
         StringBuilder stringTambor = new StringBuilder("{");
         
-        for (int i = 0; i <= this.tambor.length; i++){
+        for (int i = 0; i < this.tambor.length; i++){
             //AGREGAMOS VALORES AL STRING 
             String hueco="";
             switch(tambor[i]){
