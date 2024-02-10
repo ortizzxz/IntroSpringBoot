@@ -6,7 +6,11 @@ public class Utilidades {
      * Muestra por pantalla los atributos públicos de la clase <code>Revolver</code>.
      */
     public static void consultaAtributosPublicos(){
-        
+        System.out.println("Capacidad de un tambor por defecto: " + Revolver.CAPACIDAD_DEFECTO);
+        System.out.println("La capacidad máxima de un tambor es: " + Revolver.CAP_MAXIMA);
+        System.out.println("La capacidad mínima de un tambor es: " + Revolver.CAP_MINIMA);
+        System.out.println("Se pueden fabricr al año: " + Revolver.MAX_NUM_SERIE+
+                "revolveres");
         
     }   
     
@@ -24,8 +28,7 @@ public class Utilidades {
      * @param r objteo revólver cuyo estado se desea mostrar por pantalla
      */
     public static void consultaInformacionObjeto (Revolver r){
-        
-        
+        System.out.print(r.toString());
     }
     
     /**
