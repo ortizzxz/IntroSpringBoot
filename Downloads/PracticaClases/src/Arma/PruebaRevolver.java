@@ -13,6 +13,7 @@ public class PruebaRevolver {
     public static void main(String[] args) {
         Revolver r = new Revolver();
         //
+        r.cargar(10);
         
     }
 }
