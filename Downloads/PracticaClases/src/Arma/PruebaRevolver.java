@@ -14,10 +14,5 @@ public class PruebaRevolver {
         Revolver r = new Revolver();
         //
         
-        r.cargar();
-        Utilidades.descargarRevolver(r);
-        System.out.println("Nada");
-        System.out.println("Nada");
-        System.out.println("A ver");
     }
 }
