@@ -19,7 +19,7 @@ public class Utilidades {
      * Muestra por pantalla el contenido de los atributos privados de la clase <code>Revolver</code>.
      */
     public static void consultaInformacionClase(){
-        
+       
         
     }
     
@@ -38,7 +38,7 @@ public class Utilidades {
      * @param numBalas número de balas con las que se va a cargar
      */
     public static void cargarRevolver(Revolver r, int numBalas){
-        
+        r.cargar(numBalas);
     }
     
     /**
@@ -47,7 +47,7 @@ public class Utilidades {
      * @param r objeto de la clase revolver que se va a cargar
      */
     public static void cargarRevolverCompletamente(Revolver r){
-        
+        r.cargar();
         
     }
     
@@ -59,8 +59,9 @@ public class Utilidades {
      * @param numDisparos cantidad de disparos que se desean realiar
      */
     public static void dispararRevolver(Revolver r, int numDisparos){
-        
-        
+        for(int i=0; i < numDisparos; i++){
+            r.disparar();
+        }
     }
     
     
@@ -71,8 +72,12 @@ public class Utilidades {
      * @param r objeto revolver que se va a descargar
      */
     public static void descargarRevolver(Revolver r){  
-        
-        
+        //antes
+        System.out.print("Antes de descargar: ");
+        System.out.println(r.toString());
+        r.descargar();
+        System.out.print("Después de descargar: ");
+        System.out.println(r.toString());
     }
     
 }
