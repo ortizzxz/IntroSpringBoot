@@ -16,5 +16,7 @@ public class PruebaRevolver {
         
         r.cargar();
         Utilidades.descargarRevolver(r);
+        System.out.println("Nada");
+        System.out.println("Nada");
     }
 }
