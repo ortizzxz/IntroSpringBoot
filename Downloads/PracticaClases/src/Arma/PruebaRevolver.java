@@ -14,13 +14,7 @@ public class PruebaRevolver {
         Revolver r = new Revolver();
         //
         
-        r.descargar();
-        System.out.println(r.toString());
-        
-        //
-        r.cargar(3);
-        System.out.println(r.toString());
-        r.disparar();
-        System.out.println(r.toString());
+        r.cargar();
+        Utilidades.descargarRevolver(r);
     }
 }
