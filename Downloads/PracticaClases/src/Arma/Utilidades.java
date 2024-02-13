@@ -6,6 +6,8 @@ public class Utilidades {
      * Muestra por pantalla los atributos públicos de la clase <code>Revolver</code>.
      */
     public static void consultaAtributosPublicos(){
+        System.out.println("Atributos Públicos de Clase:");
+        System.out.println("------------------------------------------------");
         System.out.println("Capacidad de un tambor por defecto: " + Revolver.CAPACIDAD_DEFECTO);
         System.out.println("La capacidad máxima de un tambor es: " + Revolver.CAP_MAXIMA);
         System.out.println("La capacidad mínima de un tambor es: " + Revolver.CAP_MINIMA);
@@ -19,8 +21,9 @@ public class Utilidades {
      * Muestra por pantalla el contenido de los atributos privados de la clase <code>Revolver</code>.
      */
     public static void consultaInformacionClase(){
-       
-        
+        System.out.println("Atributos Privados de la clase:");
+        System.out.println("Los disparos efectivos globales son: " + Revolver.getDisparosEfectivosGlobales());
+        System.out.println("Los revolveres que hay descargados son: " + Revolver.getRevovolveresDescargados());
     }
     
     /**

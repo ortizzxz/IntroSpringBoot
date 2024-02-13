@@ -290,7 +290,7 @@ public class Revolver {
      * @return cantidad de disparos efectivos realizados por todos los
      * revólveres hasta el momento
      */
-    public int getDisparosEfectivosGlobales(){
+    public static int getDisparosEfectivosGlobales(){
         return Revolver.disparoshechos;
     }
     
@@ -301,7 +301,7 @@ public class Revolver {
      *
      * @return cantidad de revólveres descargados que hay en el momento actual
      */
-    public int getRevovolveresDescargados(){
+    public static int getRevovolveresDescargados(){
         return Revolver.revolveresDescargados;
     }
     
