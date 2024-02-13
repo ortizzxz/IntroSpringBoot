@@ -15,6 +15,6 @@ public class PruebaRevolver {
         //
         r.cargar(10);
         r.descargar();
-        Utilidades.consultaInformacionClase();
+        Utilidades.consultaInformacionObjeto(r);
     }
 }

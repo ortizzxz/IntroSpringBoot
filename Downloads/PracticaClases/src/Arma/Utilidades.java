@@ -31,7 +31,13 @@ public class Utilidades {
      * @param r objteo revólver cuyo estado se desea mostrar por pantalla
      */
     public static void consultaInformacionObjeto (Revolver r){
-        System.out.print(r.toString());
+        System.out.println("CONSULTA DE LA INFORMACIÓN DE UN OBJETO REVOLVER");
+        System.out.println("Número de serie: " + r.getNumSerie());
+        System.out.println("Capacidad del tambor: " + r.getSizeTambor());
+        System.out.println("Número de balas cargadas: " + r.getCantidadBalas());
+        System.out.println("Número total de disparos: " + r.getDisparosEfectivos());
+        System.out.println("¿Está descargado? - " + (r.isDescargado()?"Si" : "No"));
+        System.out.println("Estado actual del tambor: " + r.toString());
     }
     
     /**
