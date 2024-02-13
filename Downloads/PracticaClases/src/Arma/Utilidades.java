@@ -42,12 +42,20 @@ public class Utilidades {
     
     /**
      * Carga un revóler con un número de balas usando el método <code>cargar</code>
-     * de la clase <code>revolver</code>>.
+     * de la clase <code>revolver</code>>. Muestra el estado previo y posterior
+     * a cargar
      * @param r objeto de la clase revolver que se va a cargar
      * @param numBalas número de balas con las que se va a cargar
      */
     public static void cargarRevolver(Revolver r, int numBalas){
+        //
+        System.out.println("Cargamos el revolver con " + numBalas);
+        System.out.println("Estado del revolver antes de cargar: " + r.toString());
+        System.out.println("Cargando...");
         r.cargar(numBalas);
+        System.out.println("Cargado");
+        System.out.println("La cantidad de balas cargadas ha sido: " + r.cargar(numBalas));
+        System.out.println("Estado del revolver luego de cargar: " + r.toString());
     }
     
     /**
