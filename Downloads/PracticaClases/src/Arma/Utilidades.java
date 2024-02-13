@@ -81,9 +81,20 @@ public class Utilidades {
      * @param numDisparos cantidad de disparos que se desean realiar
      */
     public static void dispararRevolver(Revolver r, int numDisparos){
-        for(int i=0; i < numDisparos; i++){
-            r.disparar();
+        boolean disparoEfectivo;
+        
+        System.out.println("Disparamos el revolver" + numDisparos + "ve" + (numDisparos
+                ==1? "z" : "ces")); // 1 Vez - > 2 Veces
+        
+        for(int i=1; i <= numDisparos; i++){
+            System.out.println("\nDisparo " + i + ":");
+            System.out.println("Estado del revolver antes de disparar: " + r.toString());
+            disparoEfectivo = r.disparar();
+            System.out.println("¿Disparo efectivo? " + (disparoEfectivo? "Si" : "No"));
+            System.out.println("Estado del revolver después de disparar: " + r.toString());
+
         }
+        
     }
     
     
