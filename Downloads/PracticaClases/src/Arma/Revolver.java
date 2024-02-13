@@ -58,14 +58,14 @@ public class Revolver {
     /**
      * Numero entero que indica la capacidad por defecto de un tambor de un 
      * nuevo revolver
-     * @value CAPACIDAD_DEFECTO
+     * {@value CAPACIDAD_DEFECTO}
      */
     public static final int CAPACIDAD_DEFECTO = 6;
     
     /**
      * Numero que indica la cantidad de numeros de series que se pueden crear 
      * por año 
-     * @value MAX_NUM_SERIE
+     * {@value MAX_NUM_SERIE}
      */ 
     public static final int MAX_NUM_SERIE = 99;
 
@@ -162,7 +162,7 @@ public class Revolver {
     /**
      * Constructor sin parámetros. Crea un nuevo objeto <code>Revolver</code>
      * con el tamaño de tambor por omisión. El tamaño por omisión para el tambor
-     * es de {@value DEFAULT_CAPACIDAD} balas.
+     * es de {@value CAPACIDAD_DEFECTO} balas.
      *
      */
     public Revolver() throws IllegalStateException{
@@ -194,7 +194,7 @@ public class Revolver {
      * Método "fábrica" creador de un revolver ya cargado con el tamaño del
      * tambor por omisión. Crea un nuevo objeto <code>Revolver</code> con el
      * tamaño de tambor por omisión y cargado de balas. El tamaño por omisión
-     * para el tambor es de {@value DEFAULT_CAPACIDAD} balas.
+     * para el tambor es de {@value CAPACIDAD_DEFECTO} balas.
      *
      * @return revólver con tambor del tamaño por omisión y cargado
      */

@@ -4,6 +4,9 @@
  */
 package Arma;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 /**
      * Programa prueba de la clase <code>Revólver</code>.
      * El programa solicitará al usuario un número de revólveres entre 1 y 10.
@@ -14,10 +17,22 @@ package Arma;
      * el primer revovler. El resto se cargará completamente.
      * Para finalizar, se pedirá al usuario un número de disparos a realizar por
      * el primer revolver y se mostrará el resultado por pantalla.
-     * @param args
      */
 public class PruebaRevolver {
     //
     public static void main(String[] args) {
+        //Atributos
+        int numR;
+        Scanner sc = new Scanner(System.in);
+        //
+        System.out.println("PROGRAMA PARA CREAR REVÓLVERES, ENTRE 1 Y 10.");
+        try{
+        System.out.print("¿Cúantos revólveres desea usted crear?\nNº: ");
+        numR = sc.nextInt();    
+        }catch(InputMismatchException e){
+            System.out.println("Debe ingresar un valor númerico.");
+        }
+        //
+        
     }
 }
