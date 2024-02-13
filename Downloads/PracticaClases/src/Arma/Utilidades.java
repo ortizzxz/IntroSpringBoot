@@ -64,8 +64,13 @@ public class Utilidades {
      * @param r objeto de la clase revolver que se va a cargar
      */
     public static void cargarRevolverCompletamente(Revolver r){
+        System.out.println("Cargamos el revolver completamente");
+        System.out.println("Estado del revolver antes de cargar: " + r.toString());
+        System.out.println("Cargando...");
         r.cargar();
-        
+        System.out.println("Cargado");
+        System.out.println("La cantidad de balas cargadas ha sido: " + r.cargar());
+        System.out.println("Estado del revolver luego de cargar: " + r.toString());
     }
     
     
