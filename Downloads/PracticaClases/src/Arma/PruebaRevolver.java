@@ -29,7 +29,8 @@ public class PruebaRevolver {
         //Atributos
         int numR = -1; // INICIALIZADA  A -1 PARA PODER INICIAR EL BUCLE WHILE
         int numBalas = -1;
-        int numDisparos;
+        int numDisparos = 0;
+        boolean correcto = false;
         Revolver[] revolver;
         Scanner sc = new Scanner(System.in);
         
@@ -65,20 +66,22 @@ public class PruebaRevolver {
 
         //Solicitamos numero de balas
         System.out.println("Por favor, indícanos cúantas balas quieres cargar "
-                            + "para ael primer revolver - Ten en cuenta que el esto se cargara"
+                            + "para el primer revolver - Ten en cuenta que el esto se cargara"
                             + " completamente");
         while(numBalas < Revolver.CAP_MINIMA || numBalas > Revolver.CAP_MAXIMA){ 
             try{
                 if(numBalas < Revolver.CAP_MINIMA || numBalas > Revolver.CAP_MAXIMA){
                     System.out.println("Recuerde que los valores minimos permitidso son " + Revolver.CAP_MINIMA
                      + " y los valores maximos permitidos son: " + Revolver.CAP_MAXIMA);
+                }else{
+                    numBalas = sc.nextInt();
                 }
-
-                numBalas = sc.nextInt();
             }catch(InputMismatchException e){
-                System.out.println("Debe ingresar un valor númerico. " + sc.next() + 
+                System.err.println("Debe ingresar un valor númerico. " + sc.next() + 
                         " no es un número");
-            }
+            }catch(IllegalArgumentException e){
+                System.err.println(e.getMessage());
+            }        
         }
         
         //EL RESTO SE CARGARA COMPLETAMENTE
@@ -89,11 +92,19 @@ public class PruebaRevolver {
         
         System.out.println("Ahora y por ultimo, usted debera indicarnos la cantidad "
                 + "de veces que desea disparar su revolver.");
-        try{
-            numDisparos = sc.nextInt();
-        }catch(IllegalArgumentException e){
-            System.out.println(sc.next() + " no es un número entero.");
-        }
+         do{
+            try{
+                System.out.print("Introduce el número de disparos: ");
+                numDisparos = sc.nextInt();
+                correcto = true;
+            }catch (InputMismatchException e){
+                System.err.println(sc.next() + " no es un número.");
+            }           
+        }while (!correcto);
         
+        
+        //FINALIZACION 
+        Utilidades.dispararRevolver(revolver[0], numDisparos);
+        Utilidades.consultaInformacionObjeto(revolver[0]);
     }
 }
