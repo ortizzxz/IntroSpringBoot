@@ -1,0 +1,35 @@
+run:
+Probando máquina
+
++------------------------------------------------------+
+| PRUEBAS DE LA JERARQUÍA DE CLASES DEL PAQUETE maquina |
++------------------------------------------------------+
+
+CREACIÓN DE MÁQUINAS
+---------------------
+
+Pruebas de creación de BICICLETAS:
+------------------------------------
+Máquina creada Bicicleta:      { Marca:           ; modelo:           ; NS: 1   ; Fuerza Motriz: ANIMAL    ; Radio: 33,00; Kilómetros:  0,00 }
+Máquina creada Bicicleta:      { Marca: null      ; modelo: null      ; NS: 2   ; Fuerza Motriz: ANIMAL    ; Radio: 33,00; Kilómetros:  0,00 }
+Máquina creada Bicicleta:      { Marca: ORBEA     ; modelo: Orca      ; NS: 3   ; Fuerza Motriz: ANIMAL    ; Radio: 33,00; Kilómetros:  0,00 }
+	 Guardamos artefacto tipo Bicicleta en el array.
+
+Pruebas de creación de MOLINOS:
+---------------------------------
+Máquina creada Molino:         { Marca:           ; modelo:           ; NS: 4   ; Fuerza Motriz: ELECTRICIDAD; Molino de: ELECTRICO          }
+Máquina creada Molino:         { Marca: IBERDROLA ; modelo: Eficient  ; NS: 5   ; Fuerza Motriz: VIENTO    ; Molino de: DE_VIENTO          }
+	 Guardamos artefacto tipo Molino en el array.
+
+--------------------------------
+MÁQUINAS INCLUIDAS EN EL ARRAY:
+--------------------------------
+MÁQUINA 0: Bicicleta:      { Marca: ORBEA     ; modelo: Orca      ; NS: 3   ; Fuerza Motriz: ANIMAL    ; Radio: 33,00; Kilómetros:  0,00 }
+MÁQUINA 1: Molino:         { Marca: IBERDROLA ; modelo: Eficient  ; NS: 5   ; Fuerza Motriz: VIENTO    ; Molino de: DE_VIENTO          }
+MÁQUINA 2: null
+MÁQUINA 3: null
+MÁQUINA 4: null
+MÁQUINA 5: null
+MÁQUINA 6: null
+MÁQUINA 7: null
+MÁQUINA 8: null
