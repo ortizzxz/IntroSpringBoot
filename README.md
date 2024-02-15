@@ -1,10 +1,6 @@
-# Proyecto Revolver 
+# Proyecto Herencias e Interfaces 
 
-Proyecto destinado a la creacioón de una clase <Revolver>, en donde estaremos haciendo un uso dinámico de este objeto. Cargándolo, descargándolo, y haciendo distintos tipos de verificaciones - como por ejemplo, que tipo de contenido está en nuestro tambor.
-Este proyecto fue asignado como un proyecto general de la clase <Programacion> del primer curso de Ciclo Superior de Desarrollo Web, utilizando <Java> como lenguaje de programacion. 
-
-
-## Authors
+Proyecto destinado a ## Authors
 
 - [@ortizzxz](https://github.com/ortizzxz)
 
