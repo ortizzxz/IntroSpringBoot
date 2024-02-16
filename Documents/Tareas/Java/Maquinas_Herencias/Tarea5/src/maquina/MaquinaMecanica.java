@@ -37,18 +37,13 @@ public abstract class MaquinaMecanica extends Maquina{
         return fuerzaMotriz;
     }
 
-    @Override
-    public String toString() {
-        return "{ Marca:" + marca + "; "
-                + "modelo: " + modelo + "; "
-                + "NS:" + numeroDeSerie + "; "
-                + "Fuerza Motriz: " + fuerzaMotriz
-                + " }";
-    }
-    
-}
-
-//
-//crea el método "get": fuerzaMotriz
 //Sobreescribe el método toString() para que imprima los datos de la máquina con el siguiente formato:
 //{ Marca: <texto10>; modelo: <texto10>; NS: <número4>; Fuerza Motriz: <texto10> } 
+    @Override
+    public String toString() {
+        String salida = super.toString();
+        salida = salida.substring(0, (salida.length() - 1));
+        
+        return salida + String.format("Fuerza Motriz: %10s", fuerzaMotriz);
+    }   
+}

@@ -47,9 +47,7 @@ public abstract class Maquina {
     
     @Override
     public String toString() {
-        return "{ Marca:" + marca + "; "
-                + "modelo: " + modelo + "; "
-                + "NS:" + numeroDeSerie + " }";
+        return String.format("{ Marca: %10s; moelo %10s; NS: %4d }" ,marca,  modelo , numeroDeSerie);
     }
     
 }
