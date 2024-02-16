@@ -12,7 +12,7 @@ public abstract class MaquinaMecanica extends Maquina{
     //Atributo protegido de objeto: fuerzaMotriz (Fuerza)
     protected Fuerza fuerzaMotriz;
     //Constante pública de clase: DEFAULT_FUERZA_MOTRIZ=Fuerza.COMBUSTIBLE
-    public static final Fuerza DEFAULT_FUERZA_MOTRIZ = Fuerza.COMBUSTIBLE;
+    public static final Fuerza DEFAULT_FUERZA_MOTRIZ = Fuerza.ANIMAL;
     
     // esto va? 
 //    private final String marca;
@@ -44,6 +44,6 @@ public abstract class MaquinaMecanica extends Maquina{
         String salida = super.toString();
         salida = salida.substring(0, (salida.length() - 1));
         
-        return salida + String.format("Fuerza Motriz: %10s", fuerzaMotriz);
+        return salida + String.format(" Fuerza Motriz: %10s }", fuerzaMotriz);
     }   
 }

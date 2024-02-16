@@ -48,6 +48,6 @@ public final class Bicicleta extends MaquinaMecanica{
         String salida = super.toString();
         salida = salida.substring(0, (salida.length() - 1) );
         
-        return salida + String.format("Radio: %4.2f; Kilómetros: %4.2f", radioRueda, totalKilometros);
+        return salida + String.format(" Radio: %4.2f; Kilómetros: %4.2f }", radioRueda, totalKilometros);
     }   
 }
