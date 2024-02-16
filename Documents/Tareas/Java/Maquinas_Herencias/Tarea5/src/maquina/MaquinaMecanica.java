@@ -22,17 +22,28 @@ public abstract class MaquinaMecanica extends Maquina{
     public MaquinaMecanica(String marca, 
                            String modelo, 
                            Fuerza fuerzaMotriz){
-        this.marca = marca;
-        this.modelo = modelo;
+        super(marca, modelo);
         this.fuerzaMotriz = fuerzaMotriz;
     }
     
     //Crea otro constructor con sólo los parámetros marca y modelo. Se asignará la fuerzaMotriz por defecto.
     public MaquinaMecanica(String marca,
                            String modelo){
-        this.marca = marca;
-        this.modelo = modelo;
+        super(marca, modelo);
         this.fuerzaMotriz = MaquinaMecanica.DEFAULT_FUERZA_MOTRIZ;
+    }
+
+    public Fuerza getFuerzaMotriz() {
+        return fuerzaMotriz;
+    }
+
+    @Override
+    public String toString() {
+        return "{ Marca:" + marca + "; "
+                + "modelo: " + modelo + "; "
+                + "NS:" + numeroDeSerie + "; "
+                + "Fuerza Motriz: " + fuerzaMotriz
+                + " }";
     }
     
 }
