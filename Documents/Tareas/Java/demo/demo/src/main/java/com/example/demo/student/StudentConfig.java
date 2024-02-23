@@ -33,6 +33,8 @@ public class StudentConfig {
                     LocalDate.of(2003, Month.APRIL, 2)
             );
             
+            repository.deleteAll();
+            
             repository.saveAll(
                 List.of(Mariam, Jesus)
             );
