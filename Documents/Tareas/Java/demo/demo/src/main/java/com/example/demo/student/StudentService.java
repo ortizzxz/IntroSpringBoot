@@ -67,13 +67,15 @@ public class StudentService {
                           orElseThrow(() -> new IllegalStateException( // BUSQUEDA POR ID Y SI NO EXISTE
                           "ID no asociado a ningún estudiante."));   // LANZAMOS UNA EXCEPCION
         
-        if(name != null && name.length() > 0 && !Objects.equals(student.getName(), name)){
+        if(name != null && 
+           name.length() > 0 && 
+           !Objects.equals(student.getName(), name)){
             student.setName(name);
         }
         
         if(email != null && email.length() > 0 && !Objects.equals(student.getEmail(), email)){
             
-            Optional<Student> studentByEmail = studentRepository.findStudentByEmail(student.getEmail());
+            Optional<Student> studentByEmail = studentRepository.findStudentByEmail(email);
         
             // si existe lanzamos exception
             if(studentByEmail.isPresent()){
